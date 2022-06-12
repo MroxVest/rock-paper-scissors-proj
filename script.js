@@ -1,21 +1,29 @@
 //All returned values will run in console for now
 
 //Take in the players choice - playerSelection
-let playerSelection = "PaPer";
+let playerSelection = "";
 let computerSelection = "";
 let finalResponse = "";
 
-//playerSelection should be case-insensitive to avoid caps issues
-playerSelection = playerSelection.toLowerCase();
+repeatGame();
 
+function repeatGame() {
+    for (let i = 0; i < 6; i++) {
+        playerSelection = prompt();
+        playerSelection = playerSelection.toLowerCase();
+        checkSpelling();
+    }
+}
+
+function checkSpelling () {
 //Spellcheck playerSelection
 if (playerSelection == "rock" || playerSelection == "paper" || playerSelection == "scissors") {
     computerPlay();
-    compareSelections(computerSelection, playerSelection);
-    console.log(finalResponse);
+    playRound(computerSelection, playerSelection);
 }
 else {
-    console.log("Please check your spelling and try again.");
+    alert("Please check your spelling and try again.");
+}
 }
 
 
@@ -36,8 +44,8 @@ function computerPlay() {
     return computerSelection;
 }
 
-//Function to compare computerSelection with playerSelection and return a string
-function compareSelections (computerChoice, playerChoice) {
+//Function to play a round (compare computerSelection with playerSelection and return a string)
+function playRound (computerChoice, playerChoice) {
     if (computerChoice === "rock") { //computerIndex = 0
         if (playerChoice === "rock") {
             finalResponse = "Tie game!";
@@ -63,4 +71,5 @@ function compareSelections (computerChoice, playerChoice) {
             finalResponse = "Tie game!";
         }
     }
+    console.log(finalResponse);
 };
