@@ -5,18 +5,18 @@ let playerSelection = "PaPer";
 let computerSelection = "";
 let finalResponse = "";
 
-    //playerSelection should be case-insensitive to avoid caps issues
-    playerSelection = playerSelection.toLowerCase();
+//playerSelection should be case-insensitive to avoid caps issues
+playerSelection = playerSelection.toLowerCase();
 
-    //Spellcheck playerSelection
-    if (playerSelection == "rock" || playerSelection == "paper" || playerSelection == "scissors") {
-        computerPlay();
-        compareSelections(computerSelection, playerSelection);
-        console.log(finalResponse);
-    }
-    else {
-        console.log("Please check your spelling and try again.");
-    }
+//Spellcheck playerSelection
+if (playerSelection == "rock" || playerSelection == "paper" || playerSelection == "scissors") {
+    computerPlay();
+    compareSelections(computerSelection, playerSelection);
+    console.log(finalResponse);
+}
+else {
+    console.log("Please check your spelling and try again.");
+}
 
 
 //computerPlay function to return random rock, paper or scissors
