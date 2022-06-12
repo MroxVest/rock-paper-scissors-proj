@@ -2,25 +2,41 @@
 
 //Take in the players choice - playerSelection
 let playerSelection = "PaPer";
+let computerSelection = "";
+let finalResponse = "";
 
-//playerSelection should be case-insensitive to avoid caps issues
-playerSelection.toLowerCase();
+    //playerSelection should be case-insensitive to avoid caps issues
+    playerSelection = playerSelection.toLowerCase();
 
-//place rock, paper and scissors into an array
-let computerChoiceArray = ["rock", "paper", "scissors"];
-let computerIndex = getRandomInt();
+    //Spellcheck playerSelection
+    if (playerSelection == "rock" || playerSelection == "paper" || playerSelection == "scissors") {
+        computerPlay();
+        compareSelections(computerSelection, playerSelection);
+        console.log(finalResponse);
+    }
+    else {
+        console.log("Please check your spelling and try again.");
+    }
 
-//choose random number in array 0-2 (rock, paper or scissors)
-function getRandomInt(min, max) {
-    min = Math.ceil(0);
-    max = Math.floor(3);
-    return Math.floor(Math.random() * (max - min) + min);
-};
+
 //computerPlay function to return random rock, paper or scissors
-let computerSelection = computerChoiceArray[computerIndex];
+function computerPlay() {
+    //place rock, paper and scissors into an array
+    let computerChoiceArray = ["rock", "paper", "scissors"];
+    let computerIndex = getRandomInt();
+    //choose random number in array 0-2 (rock, paper or scissors)
+    function getRandomInt(min, max) {
+        min = Math.ceil(0);
+        max = Math.floor(3);
+        return Math.floor(Math.random() * (max - min) + min);
+    };
+
+    computerSelection = computerChoiceArray[computerIndex];
+
+    return computerSelection;
+}
 
 //Function to compare computerSelection with playerSelection and return a string
-let finalResponse = "";
 function compareSelections (computerChoice, playerChoice) {
     if (computerChoice === "rock") { //computerIndex = 0
         if (playerChoice === "rock") {
@@ -48,5 +64,3 @@ function compareSelections (computerChoice, playerChoice) {
         }
     }
 };
-compareSelections(computerSelection, playerSelection);
-console.log(finalResponse);
